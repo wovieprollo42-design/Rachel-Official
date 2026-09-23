@@ -311,6 +311,23 @@
   .contact-value{margin-top:2px;font-size:0.92rem;font-weight:600;word-break:break-word;}
   .contact-cta{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
 
+  .calendar-block{margin-top:40px;text-align:left;}
+  .calendar-head{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:14px;
+  }
+  .calendar-fallback{
+    display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:var(--accent);
+  }
+  .calendar-fallback:hover{color:var(--primary-2);}
+  .calendly-inline-widget{
+    border-radius:18px;overflow:hidden;border:1px solid var(--border-strong);
+    background:#fff;box-shadow:var(--shadow-card);
+  }
+  @media(max-width:560px){
+    .calendly-inline-widget{height:820px !important;}
+  }
+
   footer{padding:28px 16px 40px;text-align:center;color:var(--muted-2);font-size:0.8rem;}
   footer .accent{color:var(--primary);}
 </style>
@@ -490,8 +507,18 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
       </a>
     </div>
+    <div class="calendar-block">
+      <div class="calendar-head">
+        <span class="cred-kicker">Book a Call</span>
+        <a href="https://calendly.com/rql8003297/connect-with-rachel?month=2026-09" target="_blank" rel="noopener" class="calendar-fallback">Open scheduler in a new tab
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/rql8003297/connect-with-rachel?month=2026-09&hide_gdpr_banner=1" style="min-width:280px;height:680px;"></div>
+    </div>
   </div>
 </section>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <footer>© 2026 Rachel Langga. Based in the Philippines, working remote.</footer>
 

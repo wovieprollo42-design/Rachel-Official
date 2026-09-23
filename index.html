@@ -143,9 +143,11 @@
   }
   .hero-title .accent{color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
   .hero-role{
-    margin-top:14px;font-family:var(--font-mono);font-size:0.86rem;color:var(--accent);
-    letter-spacing:0.02em;
+    margin-top:14px;font-family:var(--font-mono);font-size:clamp(.5rem,1.7vw,.86rem);color:var(--accent);
+    letter-spacing:0.01em;white-space:nowrap;overflow-x:auto;max-width:100%;
+    scrollbar-width:none;-ms-overflow-style:none;
   }
+  .hero-role::-webkit-scrollbar{display:none;}
   .hero-role span{color:var(--muted-2);}
   .hero-lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.06rem;line-height:1.65;}
   .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;}

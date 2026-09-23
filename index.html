@@ -656,5 +656,25 @@
   }
 })();
 </script>
+<script>
+(function(){
+  var nav = document.querySelector('.topnav');
+  var contact = document.getElementById('contact');
+  if(!nav || !contact) return;
+  function update(){
+    var releasePoint = contact.offsetTop - nav.offsetHeight;
+    if(window.scrollY >= releasePoint){
+      nav.style.position = 'absolute';
+      nav.style.top = releasePoint + 'px';
+    } else {
+      nav.style.position = '';
+      nav.style.top = '';
+    }
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>

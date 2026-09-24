@@ -123,7 +123,7 @@
   /* ---------- Hero ---------- */
   header.hero{
     position:relative;overflow:hidden;
-    padding:128px 16px 64px;
+    padding:156px 16px 80px;
   }
   .hero-glow{
     position:absolute;top:-10%;left:50%;transform:translateX(-50%);
@@ -132,11 +132,11 @@
     pointer-events:none;
   }
   .hero-grid{
-    position:relative;max-width:860px;margin:0 auto;text-align:center;
+    position:relative;max-width:1040px;margin:0 auto;text-align:center;
     display:flex;flex-direction:column;align-items:center;
   }
   .hero-title{
-    margin-top:22px;font-size:clamp(2.3rem,6vw,3.6rem);font-weight:600;line-height:1.06;
+    margin-top:28px;font-size:clamp(2.4rem,5.8vw,4.5rem);font-weight:600;line-height:1.04;letter-spacing:-0.025em;
   }
   .hero-title .accent{color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
   .hero-role{
@@ -159,7 +159,34 @@
   .btn-ghost{background:rgba(255,255,255,0.04);border:1px solid var(--border-strong);color:var(--fg);}
   .btn-ghost:hover{background:rgba(255,255,255,0.08);}
 
-  .hero-stats{margin:44px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:520px;width:100%;}
+  .hero-actions .btn{padding:16px 30px;font-size:1rem;}
+  .hero-role{margin-top:26px;}
+  .hero-role::before,.hero-role::after{
+    content:"";display:inline-block;width:clamp(24px,5vw,64px);height:1px;vertical-align:middle;margin-inline:16px;
+  }
+  .hero-role::before{background:linear-gradient(90deg,transparent,rgba(95,217,196,.75));}
+  .hero-role::after{background:linear-gradient(270deg,transparent,rgba(95,217,196,.75));}
+  @media(max-width:700px){.hero-role::before,.hero-role::after{display:none;}}
+  .hero-rings{
+    position:absolute;left:0;right:0;top:0;height:900px;pointer-events:none;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 85%);mask-image:linear-gradient(180deg,#000 10%,transparent 85%);
+  }
+  .hero-rings::before,.hero-rings::after{
+    content:"";position:absolute;left:50%;border-radius:50%;border:1px solid rgba(255,255,255,0.07);transform:translateX(-50%);
+  }
+  .hero-rings::before{width:820px;height:820px;top:60px;}
+  .hero-rings::after{width:1320px;height:1320px;top:-170px;border-color:rgba(255,255,255,0.04);}
+  .hero-facts{
+    margin-top:72px;width:100%;max-width:780px;display:grid;grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--border-strong);
+  }
+  .fact{position:relative;padding:28px 12px 0;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .fact + .fact::before{content:"";position:absolute;left:0;top:28px;bottom:0;width:1px;background:var(--border);}
+  .fact-num{
+    font-family:var(--font-display);font-size:clamp(2rem,4.4vw,2.9rem);font-weight:500;line-height:1;
+    color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
+  }
+  .fact-label{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
   .stat-tile{padding:16px;border-radius:16px;}
   .stat-num{font-family:var(--font-display);font-size:1.7rem;font-weight:600;color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
   .stat-label{margin-top:3px;font-size:0.72rem;color:var(--muted);}
@@ -394,8 +421,8 @@
 <header class="hero" id="top">
   <div class="hero-glow"></div>
   <div class="grid-pattern"></div>
+  <div class="hero-rings"></div>
   <div class="hero-grid">
-    <div>
       <span class="eyebrow fade-up"><span class="dot-ping"></span>Open to new marketing operations roles</span>
       <h1 class="hero-title fade-up" style="animation-delay:.08s">Marketing operations built on <span class="accent">GoHighLevel, WordPress, and SEO.</span></h1>
       <p class="hero-role fade-up" style="animation-delay:.14s">MARKETING OPERATIONS VIRTUAL ASSISTANT <span>·</span> GOHIGHLEVEL CRM AUTOMATION <span>·</span> SEO</p>
@@ -408,12 +435,11 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
         </a>
       </div>
-      <div class="hero-stats fade-up" style="animation-delay:.34s">
-        <div class="stat-tile glass"><div class="stat-num">4+</div><div class="stat-label">Years Experience</div></div>
-        <div class="stat-tile glass"><div class="stat-num">6</div><div class="stat-label">Companies Served</div></div>
-        <div class="stat-tile glass"><div class="stat-num">2018</div><div class="stat-label">Career Started</div></div>
+      <div class="hero-facts fade-up" style="animation-delay:.34s">
+        <div class="fact"><span class="fact-num">4+</span><span class="fact-label">Years Experience</span></div>
+        <div class="fact"><span class="fact-num">6</span><span class="fact-label">Companies Served</span></div>
+        <div class="fact"><span class="fact-num">2018</span><span class="fact-label">Career Started</span></div>
       </div>
-    </div>
   </div>
 </header>
 

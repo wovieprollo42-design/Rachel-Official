@@ -132,11 +132,8 @@
     pointer-events:none;
   }
   .hero-grid{
-    position:relative;display:grid;grid-template-columns:1fr;gap:48px;
-    align-items:center;max-width:1120px;margin:0 auto;
-  }
-  @media(min-width:960px){
-    .hero-grid{grid-template-columns:1.35fr 1fr;gap:56px;}
+    position:relative;max-width:860px;margin:0 auto;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
   }
   .hero-title{
     margin-top:22px;font-size:clamp(2.3rem,6vw,3.6rem);font-weight:600;line-height:1.06;
@@ -149,8 +146,8 @@
   }
   .hero-role::-webkit-scrollbar{display:none;}
   .hero-role span{color:var(--muted-2);}
-  .hero-lede{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.06rem;line-height:1.65;}
-  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;}
+  .hero-lede{margin:20px auto 0;max-width:56ch;color:var(--muted);font-size:1.06rem;line-height:1.65;}
+  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
   .btn{
     display:inline-flex;align-items:center;gap:9px;
     padding:14px 26px;border-radius:13px;font-weight:600;font-size:0.94rem;
@@ -162,7 +159,7 @@
   .btn-ghost{background:rgba(255,255,255,0.04);border:1px solid var(--border-strong);color:var(--fg);}
   .btn-ghost:hover{background:rgba(255,255,255,0.08);}
 
-  .hero-stats{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:520px;}
+  .hero-stats{margin:44px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:520px;width:100%;}
   .stat-tile{padding:16px;border-radius:16px;}
   .stat-num{font-family:var(--font-display);font-size:1.7rem;font-weight:600;color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
   .stat-label{margin-top:3px;font-size:0.72rem;color:var(--muted);}
@@ -200,10 +197,35 @@
   .section-head h2 .accent{color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
   .section-head p{margin-top:12px;color:var(--muted);font-size:1rem;line-height:1.6;}
 
-  #about .about-body{max-width:66ch;margin:0 auto;padding:0 16px;text-align:center;}
-  #about .about-body p{color:var(--muted);font-size:1.08rem;line-height:1.75;}
-  .about-stats{
-    max-width:560px;margin:36px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 16px;
+  #about{overflow:hidden;}
+  .about-glow{
+    position:absolute;top:50%;left:22%;transform:translate(-50%,-50%);
+    width:640px;height:640px;max-width:120vw;pointer-events:none;
+    background:radial-gradient(circle at center, rgba(255,122,77,0.10), transparent 68%);
+  }
+  .about-grid{
+    position:relative;display:grid;grid-template-columns:1fr;gap:64px;align-items:center;
+    max-width:1120px;margin:0 auto;padding:0 16px;
+  }
+  @media(min-width:900px){
+    .about-grid{grid-template-columns:0.85fr 1.15fr;gap:88px;}
+  }
+  .about-portrait{max-width:380px;width:100%;}
+  .portrait-ring{
+    position:absolute;inset:0;transform:translate(16px,16px);
+    border-radius:30% 20% 32% 22%/22% 30% 20% 32%;
+    border:1px solid rgba(255,198,92,0.38);
+    background:linear-gradient(160deg, rgba(255,122,77,0.06), transparent 60%);
+  }
+  .about-copy .eyebrow{margin-bottom:0;}
+  .about-copy h2{margin-top:18px;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;line-height:1.12;}
+  .about-copy h2 .accent{color:transparent;background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;}
+  .about-copy p{margin-top:20px;max-width:56ch;color:var(--muted);font-size:1.06rem;line-height:1.8;}
+  .about-stats{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:520px;}
+  @media(max-width:899px){
+    .about-copy{text-align:center;display:flex;flex-direction:column;align-items:center;}
+    .about-copy p{margin-inline:auto;}
+    .about-portrait{margin-inline:auto;}
   }
 
   /* ---------- Marquee ---------- */
@@ -392,8 +414,15 @@
         <div class="stat-tile glass"><div class="stat-num">2018</div><div class="stat-label">Career Started</div></div>
       </div>
     </div>
-    <div class="portrait-wrap fade-up" style="animation-delay:.2s">
+  </div>
+</header>
+
+<section id="about">
+  <div class="about-glow"></div>
+  <div class="about-grid">
+    <div class="portrait-wrap about-portrait">
       <div class="portrait-blob"></div>
+      <div class="portrait-ring"></div>
       <div class="portrait-tag glass-strong float" style="top:-16px;right:-10px;left:auto;bottom:auto;color:var(--accent);">Marketing Ops VA</div>
       <div class="portrait-frame">
         <div class="inner">
@@ -402,21 +431,16 @@
       </div>
       <div class="portrait-tag glass-strong float" style="animation-delay:1.4s;color:var(--primary-2);">Butuan City, PH</div>
     </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="section-head">
-    <span class="eyebrow">Who I Am</span>
-    <h2>From on-site supervisor to <span class="accent">marketing operations.</span></h2>
-  </div>
-  <div class="about-body">
-    <p>I'm Rachel. Before digital marketing, I spent four years supervising on-site teams: deployment, scheduling, attendance, and staffing. Since 2022 I've applied that same operational discipline to GoHighLevel CRM automation, lead workflows, sales funnels, WordPress and Elementor builds, SEO content, and Meta advertising for remote teams across the Philippines, Israel, and the United States.</p>
-  </div>
-  <div class="about-stats">
-    <div class="stat-tile glass"><div class="stat-num">6</div><div class="stat-label">Roles Held</div></div>
-    <div class="stat-tile glass"><div class="stat-num">3</div><div class="stat-label">Countries Served</div></div>
-    <div class="stat-tile glass"><div class="stat-num">2021</div><div class="stat-label">BA, Sociology</div></div>
+    <div class="about-copy">
+      <span class="eyebrow">Who I Am</span>
+      <h2>From on-site supervisor to <span class="accent">marketing operations.</span></h2>
+      <p>I'm Rachel. Before digital marketing, I spent four years supervising on-site teams: deployment, scheduling, attendance, and staffing. Since 2022 I've applied that same operational discipline to GoHighLevel CRM automation, lead workflows, sales funnels, WordPress and Elementor builds, SEO content, and Meta advertising for remote teams across the Philippines, Israel, and the United States.</p>
+      <div class="about-stats">
+        <div class="stat-tile glass"><div class="stat-num">6</div><div class="stat-label">Roles Held</div></div>
+        <div class="stat-tile glass"><div class="stat-num">3</div><div class="stat-label">Countries Served</div></div>
+        <div class="stat-tile glass"><div class="stat-num">2021</div><div class="stat-label">BA, Sociology</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
